@@ -1,6 +1,8 @@
 # Denoise PPG Using Deep Learning Networks
 
-DenoiseDeepPPG is one of the result in the project of Center of Advance Wearable technologies (CWAT). This especified part is foccuses on removing the noise artifact generated during the measurement of a photoplethysmography (PPG) signal. The signal used was sintetically generate using the alogorithm propouse by (). For the denoiser we used layers of a fully convolutional network comprising 16 convolutional layers. The first 15 convolutional layers are groups of 3 layers, repeated 5 times, with filter widths of 9, 5, and 9, and number of filters of 18, 30 and 8, respectively. The last convolutional layer has a filter width of 129 and 1 filter. For DenoiseDeepPPG, the code from Matlab has been adapted to work with PPG signal generated, the code has been adapted from https://www.mathworks.com/help/deeplearning/ug/denoise-speech-using-deep-learning-networks.html
+DenoiseDeepPPG is one of![Picture2](https://user-images.githubusercontent.com/55849820/117090283-f32add80-ad25-11eb-8cc3-1cf41bef8c14.png)
+![Picture2](https://user-images.githubusercontent.com/55849820/117090298-fb831880-ad25-11eb-9283-f38a373d9f86.png)
+ the result in the project of Center of Advance Wearable technologies (CWAT). This especified part is foccuses on removing the noise artifact generated during the measurement of a photoplethysmography (PPG) signal. The signal used was sintetically generate using the alogorithm propouse by (). For the denoiser we used layers of a fully convolutional network comprising 16 convolutional layers. The first 15 convolutional layers are groups of 3 layers, repeated 5 times, with filter widths of 9, 5, and 9, and number of filters of 18, 30 and 8, respectively. The last convolutional layer has a filter width of 129 and 1 filter. For DenoiseDeepPPG, the code from Matlab has been adapted to work with PPG signal generated, the code has been adapted from https://www.mathworks.com/help/deeplearning/ug/denoise-speech-using-deep-learning-networks.html
 
 This project is capable to remove high level of noise from a PPG signal used in biomedical aplications.
 
@@ -20,6 +22,12 @@ To create the dataset we use the work published by Qunfeng Tang et all ('PPGSynt
 
 
 # Network Arquitecture
+
+The input of the CNN are the spectrograms of the PPG signal as shown in the figure 2, the input layer receive the image od size 129x8, where 8 is the number of partition that has been concatenate after the application of the Short Time Fourier Transform (STFT). The output is an spectrogram with size 129x8.
+
+
+![Picture2png](https://user-images.githubusercontent.com/55849820/117090182-a5ae7080-ad25-11eb-89b9-a609e4fb8524.png)
+
 
 layers = [imageInputLayer([NumFeatures,NumSegments])
           convolution2dLayer([9 8],18,"Stride",[1 100],"Padding","same")
@@ -51,4 +59,11 @@ layers = [imageInputLayer([NumFeatures,NumSegments])
           
           regressionLayer
           ]
+          
+ # NSpectrogram for the PPG and noise PPG signals.         
+          
+<img width="468" alt="image" src="https://user-images.githubusercontent.com/55849820/117090449-587ece80-ad26-11eb-8f9a-3940899bf7ec.png">
+
+ 
+ 
  
