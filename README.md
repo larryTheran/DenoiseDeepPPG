@@ -60,9 +60,9 @@ layers = [imageInputLayer([NumFeatures,NumSegments])
           regressionLayer
           ]
           
- # NSpectrogram for the PPG and noise PPG signals.         
-          
-<img width="468" alt="image" src="https://user-images.githubusercontent.com/55849820/117090449-587ece80-ad26-11eb-8f9a-3940899bf7ec.png">
+ # Spectrogram for the PPG and noise PPG signals.         
+
+
 
  
  
